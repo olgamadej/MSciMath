@@ -13,6 +13,30 @@ $(".navbar a").on("click", function (e) {
   );
 });
 
+//Search Bar
+const input = document.querySelector("#search");
+const blog = document.querySelectorAll(".blog");
+
+let timer;
+let sec = 500;
+
+function liveSearch() {
+  for (let i = 0; i < blog.length; i++) {
+    if (blog[i].innerText.toLowerCase().includes(input.value.toLowerCase())) {
+      blog[i].classList.remove("hidden");
+      blog[i].classList.add("active");
+    } else {
+      blog[i].classList.add("hidden");
+      blog[i].classList.remove("active");
+    }
+  }
+}
+
+input.addEventListener("keyup", () => {
+  clearTimeout(timer);
+  timer = setTimeout(liveSearch, 1000);
+});
+
 //Load onScroll
 window.addEventListener("scroll", reveal);
 
@@ -31,25 +55,3 @@ function reveal() {
     }
   }
 }
-
-//Search Bar
-const input = document.querySelector("#search");
-const blog = document.querySelectorAll(".blog");
-
-let timer;
-let sec = 500;
-
-function liveSearch() {
-  for (let i = 0; i < blog.length; i++) {
-    if (blog[i].innerText.toLowerCase().includes(input.value.toLowerCase())) {
-      blog[i].classList.remove("hidden");
-    } else {
-      blog[i].classList.add("hidden");
-    }
-  }
-}
-
-input.addEventListener("keyup", () => {
-  clearTimeout(timer);
-  timer = setTimeout(liveSearch, 1000);
-});

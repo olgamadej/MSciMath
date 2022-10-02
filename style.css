@@ -217,6 +217,10 @@ input[type="text"] {
   padding: 3vw;
   margin: 5vw;
 }
+
+.blog pre {
+  text-align: left;
+}
 .hidden {
   display: none;
 }

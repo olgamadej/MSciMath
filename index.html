@@ -252,10 +252,73 @@ alert(date.getFullYear());
               </div>
 
               <div class="blog reveal">
-                <h3>Fifth Title</h3>
-                <pre>Lorem, ipsum dolor.</pre>
+                <h3>Thread of Execution and the Call Stack</h3>
+                <pre>
+Javascript is not a asynchronous language, 
+it is a synchronous language with asynchronous 
+capabilities.
+JavaScript is a single-threaded language.
+Thread is a single sequential flow of 
+control - a process of a program:
+  Thread of execution:
+  op1 -> op2 -> op3 -> op4 -> Call Stack
+                           -> Memory Heap
+
+The Call Stack keeps track of functions (a stack 
+of functions) to be executed & manages execution 
+contexts. The Stacks are LIFO (last in first out).
+
+  Call Stack :  third()
+                second()
+                first()
+                Global EC (execution context)
+
+A Stack is a data structure.
+
+Example of a simple call stack:
+                  function first() {
+                    console.log('first...');
+                  };
+                  function second() {
+                    console.log('second...');
+                  };
+                  function third() {
+                    console.log('third...');
+                  };
+                  first();
+                  second();
+                  third();
+
+                  output: first...
+                          second...
+                          third... 
+
+Example of a just a little more complex call stack:
+                  function first() {
+                    console.log('first...');
+                    second();
+                  };
+                  function second() {
+                    console.log('second...');
+                    third();
+                  };
+                  function third() {
+                    console.log('third');
+                  };
+                  first();
+
+                  output: first... 
+                          second... 
+                          third... 
+
+
+</pre
+                >
                 <div class="blog-post-footer">
-                  <h5>#: switch, break, document.write()</h5>
+                  <h5>
+                    #: call stack, function execution, data structure,
+                    JavaScript under the hood
+                  </h5>
                   <div class="theory"></div>
                 </div>
               </div>
